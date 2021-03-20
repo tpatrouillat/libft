@@ -6,7 +6,7 @@
 /*   By: tpatroui <tpatroui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/22 10:40:58 by tpatroui          #+#    #+#             */
-/*   Updated: 2021/03/10 17:03:50 by tpatroui         ###   ########.fr       */
+/*   Updated: 2021/03/20 17:04:30 by tpatroui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		j;
 	int		size;
 
+	if (!s1 || !s2)
+		return (0);
 	size = ft_strlen(s1) + ft_strlen(s2) - 1;
 	if (!(dest = malloc(sizeof(dest) * (size + 1))))
 		return (0);
