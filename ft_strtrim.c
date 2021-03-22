@@ -6,7 +6,7 @@
 /*   By: tpatroui <tpatroui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 00:57:06 by tpatroui          #+#    #+#             */
-/*   Updated: 2021/03/09 17:17:33 by tpatroui         ###   ########.fr       */
+/*   Updated: 2021/03/22 13:34:36 by tpatroui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size = ft_strlen((char *)s1);
 	while (size && ft_strchr(set, s1[size]))
 		size--;
-	str = ft_substr((const char *)s1, 0, size + 1);
+	str = ft_substr((char *)s1, 0, size + 1);
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: tpatroui <tpatroui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 17:06:06 by tpatroui          #+#    #+#             */
-/*   Updated: 2021/03/20 16:55:06 by tpatroui         ###   ########.fr       */
+/*   Updated: 2021/03/22 12:51:21 by tpatroui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,4 @@ char	**ft_split(char const *s, char c)
 	}
 	tab[k] = NULL;
 	return (tab);
-}
-
-int	main(int argc, char const *argv[])
-{
-	char	**string;
-	int		i;
-
-	argc = 0;
-	string = ft_split(argv[1], argv[2][0]);
-	i = -1;
-	while (string[++i])
-	printf("%s\n", string[i]);
-	return (0);
 }

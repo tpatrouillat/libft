@@ -6,7 +6,7 @@
 /*   By: tpatroui <tpatroui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 00:43:21 by tpatroui          #+#    #+#             */
-/*   Updated: 2021/03/10 16:56:47 by tpatroui         ###   ########.fr       */
+/*   Updated: 2021/03/22 15:35:47 by tpatroui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char		*ft_itoa(int nbr)
 
 	i = 0;
 	neg = 0;
-	if (!(tmp = malloc(sizeof(char) * 12)))
+	if (!(tmp = ft_calloc(11 + neg, sizeof(*tmp))))
 		return (NULL);
 	if (nbr == 0)
 		return (ft_strdup("0"));
