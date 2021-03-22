@@ -6,7 +6,7 @@
 /*   By: tpatroui <tpatroui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/13 20:01:28 by tpatroui          #+#    #+#             */
-/*   Updated: 2021/03/09 16:10:38 by tpatroui         ###   ########.fr       */
+/*   Updated: 2021/03/22 18:10:30 by tpatroui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,22 @@
 
 char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 {
-	unsigned long	i;
-	int				j;
-	int				k;
+	size_t i;
+	size_t j;
 
 	i = 0;
-	j = 0;
-	k = 0;
-	if (!(to_find[i]))
+	if (!*to_find)
 		return ((char *)str);
-	while (to_find[k])
-		k++;
 	while (str[i] && i < n)
 	{
-		if (str[i] == to_find[j] && j <= k)
+		j = 0;
+		while (str[i + j] == to_find[j] && (i + j) < n)
 		{
 			j++;
-			if (j == k)
-				return ((char *)(&str[i - j + 1]));
+			if (to_find[j] == '\0')
+				return ((char *)&str[i]);
 		}
-		else
-			j = 0;
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
