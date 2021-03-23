@@ -6,24 +6,23 @@
 /*   By: tpatroui <tpatroui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:18:26 by tpatroui          #+#    #+#             */
-/*   Updated: 2021/03/15 16:02:20 by tpatroui         ###   ########.fr       */
+/*   Updated: 2021/03/23 17:24:04 by tpatroui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list		*ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*tmp;
+	size_t	size;
 
-	tmp = lst;
-	if (!lst)
-		return (NULL);
-	while (lst)
+	size = ft_lstsize(lst);
+	while (size)
 	{
+		if (!lst->next)
+			return (lst);
 		lst = lst->next;
-		if (lst != NULL)
-			tmp = lst;
+		size--;
 	}
-	return (tmp);
+	return (lst);
 }

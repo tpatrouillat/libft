@@ -6,10 +6,9 @@
 /*   By: tpatroui <tpatroui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 17:06:06 by tpatroui          #+#    #+#             */
-/*   Updated: 2021/03/23 16:09:36 by tpatroui         ###   ########.fr       */
+/*   Updated: 2021/03/23 17:11:39 by tpatroui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "libft.h"
 #include <stdlib.h>
@@ -51,7 +50,7 @@ int				ft_count(char const *s, char c)
 	return (nb);
 }
 
-char	**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**tab;
 	int		count;
@@ -78,5 +77,3 @@ char	**ft_split(char const *s, char c)
 	tab[j] = NULL;
 	return (tab);
 }
-
-
