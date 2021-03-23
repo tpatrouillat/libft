@@ -6,7 +6,7 @@
 /*   By: tpatroui <tpatroui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 00:43:21 by tpatroui          #+#    #+#             */
-/*   Updated: 2021/03/22 18:14:55 by tpatroui         ###   ########.fr       */
+/*   Updated: 2021/03/23 16:45:37 by tpatroui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ static char	*ft_strrev(char *str)
 	return (str);
 }
 
+int			ft_intlen(int n)
+{
+	int i;
+
+	i = 0;
+	while (n > 0)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
+}
+
 char		*ft_itoa(int nbr)
 {
 	int		i;
@@ -44,13 +57,13 @@ char		*ft_itoa(int nbr)
 		return (ft_strdup("0"));
 	if (nbr == -2147483648)
 		return (ft_strdup("-2147483648"));
-	if (!(tmp = ft_calloc(11 + neg, sizeof(*tmp))))
-		return (NULL);
 	if (nbr < 0)
 	{
 		neg = 1;
 		nbr *= -1;
 	}
+	if (!(tmp = ft_calloc(ft_intlen(nbr) + 1 + neg, sizeof(*tmp))))
+		return (NULL);
 	while (nbr)
 	{
 		tmp[i++] = (nbr % 10) + '0';

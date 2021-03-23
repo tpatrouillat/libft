@@ -6,7 +6,7 @@
 /*   By: tpatroui <tpatroui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 00:42:29 by tpatroui          #+#    #+#             */
-/*   Updated: 2021/03/22 14:03:17 by tpatroui         ###   ########.fr       */
+/*   Updated: 2021/03/23 16:47:18 by tpatroui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		ft_atoi(const char *str)
 {
-	int i;
-	int neg;
+	int	i;
+	int	neg;
 	int res;
 
 	i = 0;

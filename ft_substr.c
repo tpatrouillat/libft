@@ -6,7 +6,7 @@
 /*   By: tpatroui <tpatroui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 00:57:13 by tpatroui          #+#    #+#             */
-/*   Updated: 2021/03/22 17:19:03 by tpatroui         ###   ########.fr       */
+/*   Updated: 2021/03/23 14:42:19 by tpatroui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ char		*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (start >= ft_strlen(s))
 		return (ft_strdup(""));
+	if ((ft_strlen(s) + start) < len)
+		len = ft_strlen(s) + start;
 	i = 0;
-	if (!(str = (char *)malloc((len + 1) * sizeof(*str))))
+	if (!(str = (char *)malloc((len + 1) * sizeof(*s))))
 		return (NULL);
 	while (i < len)
 	{

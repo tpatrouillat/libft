@@ -6,34 +6,36 @@
 /*   By: tpatroui <tpatroui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 17:06:06 by tpatroui          #+#    #+#             */
-/*   Updated: 2021/03/22 12:51:21 by tpatroui         ###   ########.fr       */
+/*   Updated: 2021/03/23 16:09:36 by tpatroui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
-char	*ft_ndup(char const *s, int n)
+static size_t	ft_wordlen(char const *s, char c)
 {
-	char	*tab;
-	int		i;
+	size_t	len;
 
-	i = 0;
-	if (s == '\0')
-		return (NULL);
-	if (!(tab = (char *)malloc((n + 1) * sizeof(char *))))
-		return (NULL);
-	while (s[i] && i < n)
-	{
-		tab[i] = s[i];
-		i++;
-	}
-	tab[i] = '\0';
-	return (tab);
+	len = 0;
+	while (s[len] != c && s[len] != '\0')
+		len++;
+	return (len);
 }
 
-int		count(char const *s, char c)
+static char		**ft_free(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
+	return (NULL);
+}
+
+int				ft_count(char const *s, char c)
 {
 	int nb;
 	int i;
@@ -52,27 +54,29 @@ int		count(char const *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**tab;
-	int		i;
+	int		count;
+	int		wlen;
 	int		j;
-	int		k;
 
 	if (s == NULL)
 		return (NULL);
-	if (!(tab = (char **)malloc((count(s, c) + 1) * sizeof(char *))))
+	count = ft_count(s, c);
+	if (!(tab = (char **)malloc((count + 1) * sizeof(char *))))
 		return (NULL);
-	i = 0;
-	k = 0;
-	while (s[i])
+	j = 0;
+	while (count--)
 	{
-		j = 0;
-		while (s[i] && s[i] == c)
-			i++;
-		while (s[i + j] && s[i + j] != c)
-			j++;
-		if (j > 0)
-			tab[k++] = ft_ndup(&s[i], j);
-		i += j;
+		while (*s == c && *s)
+			s++;
+		wlen = ft_wordlen(s, c);
+		if (!(tab[j] = (char*)malloc(sizeof(char) * wlen + 1)))
+			return (ft_free(tab));
+		ft_strlcpy(tab[j], s, wlen + 1);
+		j++;
+		s += wlen;
 	}
-	tab[k] = NULL;
+	tab[j] = NULL;
 	return (tab);
 }
+
+
