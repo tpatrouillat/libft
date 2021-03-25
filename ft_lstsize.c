@@ -6,7 +6,7 @@
 /*   By: tpatroui <tpatroui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 16:14:39 by tpatroui          #+#    #+#             */
-/*   Updated: 2021/03/23 17:19:01 by tpatroui         ###   ########.fr       */
+/*   Updated: 2021/03/25 15:41:53 by tpatroui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@ int		ft_lstsize(t_list *lst)
 	int		size;
 
 	size = 0;
-	if (!lst)
-		return (0);
-	while (lst)
+	if (lst)
 	{
-		lst = lst->next;
-		size++;
+		while (lst)
+		{
+			lst = lst->next;
+			size++;
+		}
 	}
 	return (size);
 }
